@@ -172,4 +172,4 @@ maindata<-revexp %>%
   arrange(Date,Levels.of.government,Estimates,Normalization)
 
 # Overwrite the Google Sheet. Run gs4_auth() at some point first on a new system; login using FON credentials
-sheet_write(maindata,ss="16AbktexUA-yP52eDtfB0wZLkDfPNC72-cabIFTYFOPE",sheet="maindata")
+sheet_write(maindata,ss=Sys.getenv("GOOGLE_SHEET"),sheet="maindata")
