@@ -1,0 +1,16 @@
+# This Actions file will update the data
+name: updatedata
+on:
+  #schedule:
+  #  - cron: '30 0 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      GOOGLE_SHEET: ${{ secrets.GOOGLE_SHEET }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@master
+      - name: Run R script
+        run: Rscript 'R/update_data.R'
