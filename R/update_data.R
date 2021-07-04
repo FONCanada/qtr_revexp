@@ -40,6 +40,7 @@ revexp<-revexpdata %>%
                           "University Childcare Benefit",
                           "Child Tax Credit",
                           "Defence",
+                          "Family and youth allowances",
                           "Canada Assistance Plan",
                           "General governments expenditure",
                           "Canada Health and Social Transfer",
@@ -113,4 +114,8 @@ maindata<-revexp %>%
   arrange(Date,Levels.of.government,Estimates,Normalization)
 
 # Overwrite the Google Sheet. Run gs4_auth() at some point first on a new system; login using FON credentials
-sheet_write(maindata,ss=Sys.getenv("GOOGLE_SHEET"),sheet="maindata")
+gs4_auth()
+sheet_write(maindata,ss="174l05aIIAwLlCGlB8-WM_kW7R0Dm0AYAbPRnDJ_7pIk",sheet="maindata")
+
+# Create a CSV File
+write.csv(maindata,"qtr_revexp_data.csv",row.names = F)
