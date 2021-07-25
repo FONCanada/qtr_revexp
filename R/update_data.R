@@ -46,8 +46,21 @@ revexp<-revexpdata %>%
                           "Canada Health and Social Transfer",
                           "Canada Health Transfer",
                           "Canada Social Transfer",
+                          "Territorial governments",
+                          "Official languages",
+                          "To provincial and territorial general governments",
+                          "To provincial and territorial administration",
+                          "To provincial and territorial education",
+                          "To provincial health and social services",
+                          "To local general governments",
+                          "To Aboriginal general governments",
+                          "Current transfers to non-residents",
                           "Gasoline and motive fuel taxes",
                           "Royalties",
+                          "Military veterans' benefits",
+                          "Research and scholarship grants",
+                          "Other federal transfers to households",
+                          "Other current transfers to households",
                           "Interest and other investment income",
                           "Real property taxes",
                           "Social assistance",
@@ -57,6 +70,7 @@ revexp<-revexpdata %>%
                           "Custom import duties",
                           "Employment Insurance benefits",
                           "Remitted profits of government business enterprises",
+                          "Final expenditure on goods and services",
                           "Current transfers from general governments",
                           "Current transfers to general governments",
                           "General governments surplus or deficit",
@@ -114,8 +128,8 @@ maindata<-revexp %>%
   arrange(Date,Levels.of.government,Estimates,Normalization)
 
 # Overwrite the Google Sheet. Run gs4_auth() at some point first on a new system; login using FON credentials
-gs4_auth()
-sheet_write(maindata,ss="174l05aIIAwLlCGlB8-WM_kW7R0Dm0AYAbPRnDJ_7pIk",sheet="maindata")
+# gs4_auth()
+# sheet_write(maindata,ss="174l05aIIAwLlCGlB8-WM_kW7R0Dm0AYAbPRnDJ_7pIk",sheet="maindata")
 
 # Create a CSV File
 write.csv(maindata,"qtr_revexp_data.csv",row.names = F)
