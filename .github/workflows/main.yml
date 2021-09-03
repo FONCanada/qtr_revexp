@@ -14,3 +14,8 @@ jobs:
       - uses: r-lib/actions/setup-r@master
       - name: Run R script
         run: Rscript 'R/update_data.R'
+      - name: Commit results
+        run: |
+          git add '*.*'
+          git commit -m "Update All Plots" || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
