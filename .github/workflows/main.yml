@@ -16,6 +16,8 @@ jobs:
         run: Rscript 'R/update_data.R'
       - name: Commit results
         run: |
-          git add '*.*'
+          git config --global user.email "trevor.tombe@gmail.com"
+          git config --global user.name "Trevor Tombe"
+          git add 'qtr_revexp_data.csv'
           git commit -m "Update All Plots" || echo "No changes to commit"
           git push origin || echo "No changes to commit"
